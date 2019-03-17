@@ -345,7 +345,7 @@ GameObject:
   - component: {fileID: 1569533296}
   m_Layer: 0
   m_Name: Table (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -472,6 +472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accel: 5
   maxSpeed: 20
+  jumpSpeed: 200
   firePoint: {fileID: 0}
   offset: 0
   bullet: {fileID: 0}
@@ -587,7 +588,7 @@ GameObject:
   - component: {fileID: 2069891559}
   m_Layer: 0
   m_Name: Table
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

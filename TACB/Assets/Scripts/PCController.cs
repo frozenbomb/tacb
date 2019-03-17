@@ -7,12 +7,15 @@ public class PCController : MonoBehaviour
 {
     public float accel;
     public float maxSpeed;
+    public float jumpSpeed;
     public Transform firePoint;
     public float offset;
     public GameObject bullet;
 
     private Rigidbody2D rb;
     private SpriteRenderer sr;
+
+    private bool isGrounded;
 
     void Start()
     {
@@ -45,10 +48,31 @@ public class PCController : MonoBehaviour
         }
         
         if(Input.GetKeyDown ("space")){
-            rb.AddForce(new Vector2(0, 200), ForceMode2D.Impulse);
+            if(isGrounded)
+            {
+                rb.AddForce(new Vector2(0, jumpSpeed), ForceMode2D.Impulse);
+            }
         }
     }
 
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.tag == "Ground")
+        {
+            isGrounded = true;
+            Debug.Log("grounded");
+        }
+    }
+
+    
+    void OnCollisionExit2D(Collision2D other)
+    {
+        if(other.gameObject.tag == "Ground")
+        {
+            isGrounded = false;
+            Debug.Log("not grounded");
+        }
+    }
     // if value is bigger than top, set to top.
     // if value is smaller than bottom, set to bottom.
     // else don't change value
